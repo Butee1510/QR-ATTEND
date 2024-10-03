@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('attendance', function (Blueprint $table) {
+        Schema::table('attendances', function (Blueprint $table) {
             $table->unsignedBigInteger('student_id')->after('id');
             $table->unsignedBigInteger('course_id')->after('student_id');
             $table->unsignedBigInteger('lecturer_id')->after('course_id');
@@ -32,7 +32,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('attendance', function (Blueprint $table) {
+        Schema::table('attendances', function (Blueprint $table) {
             $table->dropForeign(['student_id']);
             $table->dropForeign(['course_id']);
             $table->dropForeign(['lecturer_id']);
