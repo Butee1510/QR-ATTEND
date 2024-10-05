@@ -19,6 +19,17 @@
             <x-text-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
+        <!-- Dropdown menu-->
+        <div class="form-group">
+            <label for="user_type">Register as:</label>
+            <div class="dropdown">
+                <select name="user_type" id="user_type" class="form-control" required>
+                    <option value="">-- Select User Type --</option>
+                    <option value="student">Student</option>
+                    <option value="lecturer">Lecturer</option>
+                </select>
+            </div>
+        </div>
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />

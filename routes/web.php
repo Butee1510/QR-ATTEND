@@ -3,6 +3,19 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+// Route for creating a Lecturer
+Route::post('/lecturers', [LecturerController::class, 'store']);
+
+// Route for creating a Student
+Route::post('/students', [StudentController::class, 'store']);
+
+// Route for creating Attendance
+Route::post('/attendances', [AttendanceController::class, 'store']);
+
+// Route for creating a Course
+Route::post('/courses', [CourseController::class, 'store']);
+
 Route::get('/', function () {
     return view('auth.login');
 });
