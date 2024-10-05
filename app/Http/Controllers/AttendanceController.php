@@ -28,6 +28,17 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'student_id' => 'required|exists:students,id',
+            'course_id' => 'required|exists:courses,id',
+            'lecturer_id' => 'required|exists:lecturers,id',
+            'date' => 'required|date',
+            'status' => 'required|boolean'
+        ]);
+
+        $attendance = Attendance::create($validated);
+
+        return response()->json($attendance, 201);
         //
     }
 
