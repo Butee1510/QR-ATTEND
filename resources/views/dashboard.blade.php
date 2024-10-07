@@ -1,15 +1,19 @@
 <x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
-    @if (Auth::user()->user_type === 'student')
-        <p>Welcome, student!</p>
+        </h2>
+        @if (Auth::user()->user_type === 'student')
+        <p>Welcome, student</p>
         @elseif (Auth::user()->user_type === 'lecturer')
         <p>Welcome, lecturer!</p>
     @endif
+
+
+    </x-slot>
+
 
 
 
@@ -28,6 +32,7 @@
             <div class="flex flex-col justify-end mt-1 grid grid-cols-1 md:grid-cols-3 gap-6">
 
             <!-- Card 1: Scan Attendance -->
+
 
              @if (Auth::user()->user_type === 'student')
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -58,7 +63,14 @@
                         </div>
 
 
-                <!-- Card 2: Feedback -->
+                        <!-- card 2: Register Course -->
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <div class="flex justify-center mb-4">
+                                <img src="https://via.placeholder.com/100" alt="Register for Course" class="h-16 w-16">
+                            </div>
+                            <h2 class="text-xl font-bold text-center mb-2">Register for a Course</h2>
+                            <p class="text-gray-600 text-center mb-4">Select and register for an available course.</p>
+                <!-- Card 3: Feedback -->
 
             @if (Auth::user()->user_type === 'student')
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -100,10 +112,9 @@
                         <a href="#" class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600">View Report</a>
                     </div>
                 </div>
-                @elseif (Auth::user()->user_type ==='student')
-            @endif
-
-            @if (Auth::user()->user_type === 'Lecturer')
+             @endif
+               <!-- feedback -->
+             @if (Auth::user()->user_type === 'lecturer')
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="p-6 text-center">
                         <div class="mb-4">
@@ -116,7 +127,9 @@
                         <a href="/feedback" class="mt-4 inline-block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600">Submit</a>
                     </div>
                 </div>
-             @elseif (nothing )
+             @endif
+
+
 
                 <!-- Card 3: Logout -->
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -126,10 +139,19 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V7m0 10h6M5 4v16" />
                             </svg>
                         </div>
-                        <h2 class="text-xl font-semibold text-gray-800">Logout</h2>
-                        <p class="text-gray-600 mt-2">Log out securely from the system.</p>
-                        <a href="/logout" class="mt-4 inline-block bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600">Logout</a>
+
+                        <p class="text-gray-600 mt-2"></p>
+                        <form method="POST" action="{{ route('logout') }}" class="text-center">
+                            @csrf
+                            <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">
+                                Logout
+                            </button>
+                        </form>
+                        {{ QrCode::generate('Scan Me')  }}
                     </div>
+
+
+
                 </div>
             </div>
         </div>
