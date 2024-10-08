@@ -68,8 +68,32 @@
                             <div class="flex justify-center mb-4">
                                 <img src="https://via.placeholder.com/100" alt="Register for Course" class="h-16 w-16">
                             </div>
-                            <h2 class="text-xl font-bold text-center mb-2">Register for a Course</h2>
+                            <h2 class="text-xl font-bold text-center mb-2"></h2>
                             <p class="text-gray-600 text-center mb-4">Select and register for an available course.</p>
+
+                                                    <!-- Registration Form -->
+
+
+                                <!-- Course Dropdown -->
+                                <div class="mb-4">
+                                    <label for="course" class="block text-sm font-medium text-gray-700 mb-2">Select Course</label>
+                                    <select id="course" name="course_id" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                        <option value="">-- Choose a Course --</option>
+                                        <!-- Loop through courses in your database -->
+
+                                    </select>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="flex justify-center">
+                                    <button type="submit" class="mt-4 inline-block bg-green-500 justify-center text-white px-6 py-2 rounded-full hover:bg-green-600">
+                                        Register
+
+
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                 <!-- Card 3: Feedback -->
 
             @if (Auth::user()->user_type === 'student')
