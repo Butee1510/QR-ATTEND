@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CourseRegistrationController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,6 +18,12 @@ Route::post('/attendances', [AttendanceController::class, 'store']);
 // Route for creating a Course
 Route::post('/courses', [CourseController::class, 'store']);
 
+// Route for creating a CourseRegistration
+Route::get('/course-registrations', [CourseRegistrationController::class, 'create'])->name('course.registration.form');
+Route::post('/course-registrations', [CourseRegistrationController::class, 'store'])->name('course.registration.store');
+
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -29,5 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
