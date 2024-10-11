@@ -22,6 +22,15 @@ Route::post('/courses', [CourseController::class, 'store']);
 Route::get('/course-registrations', [CourseRegistrationController::class, 'create'])->name('course.registration.form');
 Route::post('/course-registrations', [CourseRegistrationController::class, 'store'])->name('course.registration.store');
 
+// Generate QR Code for course
+Route::get('/lecturer/course/{courseId}/qrcode', [AttendanceController::class, 'generateCourseQrCode'])->name('generate.qrcode');
+
+// Log attendance when QR code is scanned
+Route::get('/attendance/scan', [AttendanceController::class, 'logAttendance'])->name('attendance.scan');
+
+// Manage attendance for a course
+Route::get('/lecturer/course/{courseId}/manage-attendance', [AttendanceController::class, 'manageAttendance'])->name('manage.attendance');
+
 
 
 Route::get('/', function () {
