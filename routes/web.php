@@ -1,13 +1,23 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseRegistrationController;
-
+use App\Http\Controllers\LecturersController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QRCodeController;
+
+
+
+
+Route::get('/generate-qrcode/{course}', [QRCodeController::class, 'generateQRCode'])->name('generate.qrcode');
+
 
 
 // Route for creating a Lecturer
-Route::post('/lecturers', [LecturerController::class, 'store']);
+Route::post('/lecturers', [LecturersController::class, 'store']);
 
 // Route for creating a Student
 Route::post('/students', [StudentController::class, 'store']);
@@ -21,15 +31,6 @@ Route::post('/courses', [CourseController::class, 'store']);
 // Route for creating a CourseRegistration
 Route::get('/course-registrations', [CourseRegistrationController::class, 'create'])->name('course.registration.form');
 Route::post('/course-registrations', [CourseRegistrationController::class, 'store'])->name('course.registration.store');
-
-// Generate QR Code for course
-Route::get('/lecturer/course/{courseId}/qrcode', [AttendanceController::class, 'generateCourseQrCode'])->name('generate.qrcode');
-
-// Log attendance when QR code is scanned
-Route::get('/attendance/scan', [AttendanceController::class, 'logAttendance'])->name('attendance.scan');
-
-// Manage attendance for a course
-Route::get('/lecturer/course/{courseId}/manage-attendance', [AttendanceController::class, 'manageAttendance'])->name('manage.attendance');
 
 
 

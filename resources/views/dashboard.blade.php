@@ -1,309 +1,284 @@
-<x-app-layout>
+ <x-app-layout>
+                    <x-slot name="header">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                            {{ __('Dashboard') }}
+                        </h2>
 
+                        @if (Auth::user()->user_type === 'student')
+                            <p>Welcome, student</p>
+                        @elseif (Auth::user()->user_type === 'lecturer')
+                            <p>Welcome, lecturer</p>
+                        @endif
+                    </x-slot>
 
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-
-        </h2>
-
-
-
-        @if (Auth::user()->user_type === 'student')
-            <p>Welcome, student</p>
-        @elseif (Auth::user()->user_type === 'lecturer')
-            <p>Welcome, lecturer</p>
-        @endif
-
-
-    </x-slot>
-
-
-
-
-    @if (Auth::user()->user_type === 'student')
-        <div class=" flex items-center justify-center">
-            <div class="w-full max-w-4xl p-5">
-                <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Student Dashboard</h1>
-         @elseif (Auth::user()->user_type === 'lecturer')
-                <div class=" flex items-center justify-center">
-                    <div class="w-full max-w-4xl p-5">
-                        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Lecturer Dashboard </h1>
-    @endif
+                    @if (Auth::user()->user_type === 'student')
+                    <div class=" flex items-center justify-center">
+                        <div class="w-full max-w-4xl p-5">
+                            <h1 class="text-4xl font-bold text-center text-gray-800 mb-8"></h1>
+                     @elseif (Auth::user()->user_type === 'lecturer')
+                            <div class=" flex items-center justify-center">
+                                <div class="w-full max-w-4xl p-5">
+                                    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8"> </h1>
+                @endif
 
 
 
 
-    <!-- Card: Scan Attendance -->
-    <!-- Card Container -->
+                    <div class="flex flex-col justify-end mt-1 grid grid-cols-1 md:grid-cols-3 gap-6">
 
+                    @if (Auth::user()->user_type === 'student')
+                    <!-- Student Dashboard: Scan Attendance -->
+                        <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div class="p-6 text-center">
+                                <div class="mb-4">
+                                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="150.000000pt" height="50.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                        <metadata>
+                                        Created by potrace 1.16, written by Peter Selinger 2001-2019
+                                        </metadata>
+                                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                        <path d="M2252 5099 c-75 -29 -162 -113 -198 -191 l-29 -63 -5 -1120 -5 -1119 -222 -72 c-284 -91 -348 -132 -411 -257 -12 -24 -92 -296 -177 -603 -85 -307 -163 -576 -172 -597 -9 -22 -62 -81 -125 -142 -102 -99 -108 -106 -108 -145 0 -53 27 -80 80 -80 36 0 49 8 139 91 103 94 136 131 165 186 9 18 88 292 177 609 88 318 165 587 171 598 16 32 70 86 102 103 31 16 357 123 375 123 8 0 11 -129 11 -456 l0 -456 30 -30 c57 -56 54 -58 524 349 271 234 440 373 464 382 51 19 104 8 147 -30 59 -52 65 -127 16 -204 -10 -16 -172 -200 -359 -409 l-340 -378 -17 -87 c-36 -186 -107 -353 -190 -448 -72 -82 -147 -125 -307 -178 -79 -26 -165 -59 -191 -73 -31 -17 -90 -71 -167 -154 -109 -118 -120 -133 -120 -167 0 -50 32 -81 85 -81 37 0 46 7 154 121 63 66 131 129 151 139 19 10 82 32 140 50 247 76 376 175 483 370 35 64 117 288 117 322 0 16 46 18 703 20 l702 3 57 27 c76 35 151 107 185 177 l28 56 0 1790 0 1790 -34 63 c-39 72 -88 120 -163 159 l-53 28 -880 2 c-864 2 -881 2 -933 -18z m1738 -150 c100 -23 152 -86 158 -190 l4 -69 -981 0 -981 0 0 44 c0 112 66 196 170 217 58 11 1579 10 1630 -2z m160 -1874 l0 -1455 -510 0 c-280 0 -510 2 -510 4 0 3 47 58 105 122 112 125 148 185 166 275 39 197 -136 385 -342 366 -105 -9 -142 -35 -512 -356 -192 -165 -350 -301 -353 -301 -2 0 -4 630 -4 1400 l0 1400 980 0 980 0 0 -1455z m0 -1680 c0 -96 -54 -168 -145 -194 -29 -9 -215 -11 -652 -9 l-612 3 115 128 115 127 589 0 590 0 0 -55z"/>
+                                        <path d="M3115 4885 c-50 -49 -17 -145 49 -145 52 0 96 39 96 85 0 72 -94 112 -145 60z"/>
+                                        <path d="M2563 3686 l-28 -24 0 -200 c0 -198 0 -201 24 -226 32 -34 88 -36 119 -3 20 22 22 33 22 165 l0 142 135 0 c78 0 144 5 159 11 50 23 58 98 14 139 -20 19 -35 20 -219 20 -195 0 -198 0 -226 -24z"/>
+                                        <path d="M3335 3685 c-17 -16 -25 -35 -25 -60 0 -25 8 -44 25 -60 23 -24 29 -25 164 -25 l140 0 3 -146 c3 -139 4 -147 27 -165 33 -27 86 -25 116 6 25 24 25 25 25 225 0 270 20 250 -250 250 -200 0 -201 0 -225 -25z"/>
+                                        <path d="M2832 3443 c-30 -12 -42 -61 -42 -173 l0 -110 -99 0 c-90 0 -103 -2 -126 -23 -36 -31 -38 -86 -5 -122 22 -24 29 -25 126 -25 l102 0 4 -125 c5 -183 -24 -169 351 -173 166 -2 317 0 335 3 64 12 72 30 72 170 l0 125 105 0 c99 0 107 2 130 25 25 24 32 65 19 100 -12 32 -59 45 -159 45 l-95 0 0 123 c0 181 32 167 -376 166 -181 0 -335 -3 -342 -6z m548 -223 l0 -60 -210 0 -210 0 0 60 0 60 210 0 210 0 0 -60z m0 -295 l0 -65 -210 0 -210 0 0 65 0 65 210 0 210 0 0 -65z"/>
+                                        <path d="M2563 2916 l-28 -24 -3 -172 c-4 -193 0 -232 29 -261 18 -18 34 -19 223 -19 229 0 242 3 252 71 5 29 1 41 -19 65 l-25 29 -146 3 -146 4 0 139 c0 135 -1 141 -25 164 -31 32 -75 32 -112 1z"/>
+                                        <path d="M3670 2912 l-30 -30 0 -135 0 -135 -139 -4 c-132 -3 -141 -4 -165 -27 -34 -32 -36 -88 -3 -119 22 -21 32 -22 228 -22 271 0 249 -21 249 247 0 227 -3 239 -72 250 -32 5 -41 1 -68 -25z"/>
+                                        <path d="M2980 1397 c-38 -19 -54 -60 -40 -102 6 -19 20 -40 30 -45 11 -6 102 -10 208 -10 184 0 189 1 210 23 23 25 29 75 12 107 -5 10 -24 23 -41 29 -46 16 -347 14 -379 -2z"/>
+                                        </g>
+                                        </svg>
+                                </div>
+                                <h2 class="text-xl font-semibold text-gray-800">Scan Attendance</h2>
 
-
-         <div class="flex flex-col justify-end mt-1 grid grid-cols-1 md:grid-cols-3 gap-6">
-
-
-        @if (Auth::user()->user_type === 'student')
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div class="p-6 text-center">
-                    <div class="mb-4">
-                        <svg class="w-12 h-12 mx-auto text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 11c1.657 0 3-.895 3-2s-1.343-2-3-2-3 .895-3 2 .895 2 3 2zm0 4c-1.657 0-3 .895-3 2v3h6v-3c0-1.105-1.343-2-3-2z" />
-                        </svg>
-                    </div>
-                    <h2 class="text-xl font-semibold text-gray-800">Scan Attendance</h2>
-                    <p class="text-gray-600 mt-2"> </p>
-
-                    <!-- Drop-down for selecting course -->
-                        <form id="attendanceForm" action="{{ route('attendance.scan') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <label for="course" class="block text-sm font-medium text-gray-700">Select Course</label>
-                            <select id="course" name="course_id" required class="block w-full mt-2 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-
-                            </select>
-
-                            <!-- Button to open camera and scan QR code -->
-                            <button type="button" id="openCamera" class="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-lg">Open Camera to Scan QR Code</button>
-                        </form>
-
-                        <!-- Area to display the camera feed for QR scanning -->
-                        <div id="camera" class="hidden mt-4">
-                            <video id="qr-video" width="300" height="200"></video>
-                            <p id="qr-result" class="mt-2 text-green-500 font-bold"></p>
+                                <!-- Start Camera Button inside Scan Attendance -->
+                                <button id="startCamera" class="mt-4 inline-block bg-indigo-500 text-white px-6 py-2 rounded-full hover:bg-gray-500">Start Camera</button>
+                                <div class="mt-4">
+                                    <video id="videoElement" autoplay playsinline style="width: 100%; height: auto; display:none;"></video>
+                                </div>
+                            </div>
                         </div>
 
-                        <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-                    <script>
-                        const qrResult = document.getElementById("qr-result");
-                        const cameraDiv = document.getElementById("camera");
+                        <script>
+                            const btn = document.getElementById('startCamera');
+                            const video = document.getElementById('videoElement');
 
-                        // Open camera when button is clicked
-                        document.getElementById("openCamera").addEventListener("click", function () {
-                            cameraDiv.classList.remove("hidden");
-
-                            // Start scanning using the camera
-                            const html5QrCode = new Html5Qrcode("qr-video");
-                            html5QrCode.start(
-                                { facingMode: "environment" },  // Use rear camera
-                                { fps: 10, qrbox: 250 },
-                                qrCodeMessage => {
-                                    qrResult.textContent = `QR Code scanned: ${qrCodeMessage}`;
-
-                                    // Once the QR code is scanned, submit the form
-                                    document.getElementById('attendanceForm').submit();
-                                },
-                                errorMessage => {
-                                    // Handle scan errors here (optional)
-                                    console.warn(errorMessage);
-                                }
-                            ).catch(err => {
-                                console.error(err);
+                            btn.addEventListener('click', () => {
+                                navigator.mediaDevices.getUserMedia({ video: true })
+                                    .then((stream) => {
+                                        video.srcObject = stream;
+                                        video.style.display = 'block';
+                                    })
+                                    .catch((error) => {
+                                        console.error("Error accessing camera: ", error);
+                                        alert("Unable to access the camera. Please ensure it is connected and allowed.");
+                                    });
                             });
-                        });
-                    </script>
+                        </script>
+
+                    @elseif (Auth::user()->user_type === 'lecturer')
+                    <!-- Lecturer Dashboard: Generate QR Code -->
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <div id="qrCodeContainer" class="flex justify-center mb-4">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25.000000pt" height="25.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                    <metadata>
+                                    Created by potrace 1.16, written by Peter Selinger 2001-2019
+                                    </metadata>
+                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                    <path d="M488 4941 c-145 -47 -269 -174 -312 -320 -14 -47 -16 -132 -16 -605 0 -532 1 -552 20 -584 58 -95 216 -99 277 -5 17 25 18 68 23 558 5 507 6 531 25 564 26 44 62 70 111 81 21 5 264 10 539 10 481 0 501 1 533 20 48 30 72 75 72 140 0 65 -24 110 -72 140 -32 19 -51 20 -588 19 -510 0 -560 -2 -612 -18z"/>
+                                    <path d="M3432 4940 c-95 -58 -99 -216 -5 -277 25 -17 68 -18 558 -23 507 -5 531 -6 564 -25 44 -26 70 -62 81 -111 5 -21 10 -264 10 -539 0 -481 1 -501 20 -533 30 -48 75 -72 140 -72 65 0 110 24 140 72 19 32 20 52 20 584 0 473 -2 558 -16 605 -43 148 -168 274 -315 320 -57 18 -99 19 -612 19 -533 0 -553 -1 -585 -20z"/>
+                                    <path d="M872 4300 c-18 -11 -41 -34 -52 -52 -19 -32 -20 -52 -20 -568 0 -516 1 -536 20 -568 11 -18 34 -41 52 -52 32 -19 52 -20 568 -20 516 0 536 1 568 20 18 11 41 34 52 52 19 32 20 52 20 568 0 516 -1 536 -20 568 -11 18 -34 41 -52 52 -32 19 -52 20 -568 20 -516 0 -536 -1 -568 -20z m888 -620 l0 -320 -320 0 -320 0 0 320 0 320 320 0 320 0 0 -320z"/>
+                                    <path d="M2472 4300 c-48 -30 -72 -75 -72 -140 0 -65 24 -110 72 -140 32 -19 52 -20 781 -20 l747 0 0 -267 c0 -250 1 -270 20 -301 30 -48 75 -72 140 -72 65 0 110 24 140 72 19 31 20 51 20 408 0 357 -1 377 -20 408 -11 18 -34 41 -52 52 -32 19 -52 20 -888 20 -836 0 -856 -1 -888 -20z"/>
+                                    <path d="M2472 3660 c-67 -41 -72 -60 -72 -300 0 -197 2 -218 20 -248 30 -48 75 -72 140 -72 65 0 110 24 140 72 18 30 20 51 20 248 0 197 -2 218 -20 248 -30 48 -75 72 -140 72 -37 0 -66 -6 -88 -20z"/>
+                                    <path d="M3112 3660 c-18 -11 -41 -34 -52 -52 -19 -32 -20 -52 -20 -568 0 -516 1 -536 20 -568 30 -48 75 -72 140 -72 65 0 110 24 140 72 19 32 20 52 20 461 l0 427 108 0 c89 0 112 3 140 20 48 30 72 75 72 140 0 65 -24 110 -72 140 -30 18 -51 20 -248 20 -197 0 -218 -2 -248 -20z"/>
+                                    <path d="M3752 3020 c-48 -30 -72 -75 -72 -140 0 -65 24 -110 72 -140 28 -17 51 -20 141 -20 l107 0 0 -107 c0 -122 13 -157 72 -193 45 -27 131 -27 176 0 67 41 72 60 72 300 0 197 -2 218 -20 248 -41 67 -60 72 -300 72 -197 0 -218 -2 -248 -20z"/>
+                                    <path d="M872 2700 c-48 -30 -72 -75 -72 -140 0 -65 24 -110 72 -140 32 -19 52 -20 488 -20 436 0 456 1 488 20 48 30 72 75 72 140 0 65 -24 110 -72 140 -32 19 -52 20 -488 20 -436 0 -456 -1 -488 -20z"/>
+                                    <path d="M2312 2700 c-48 -30 -72 -75 -72 -140 0 -65 24 -110 72 -140 29 -17 51 -20 168 -20 117 0 139 3 168 20 48 30 72 75 72 140 0 65 -24 110 -72 140 -29 17 -51 20 -168 20 -117 0 -139 -3 -168 -20z"/>
+                                    <path d="M872 2060 c-18 -11 -41 -34 -52 -52 -19 -32 -20 -52 -20 -568 0 -516 1 -536 20 -568 11 -18 34 -41 52 -52 32 -19 52 -20 568 -20 516 0 536 1 568 20 18 11 41 34 52 52 19 32 20 52 20 568 0 516 -1 536 -20 568 -11 18 -34 41 -52 52 -32 19 -52 20 -568 20 -516 0 -536 -1 -568 -20z m888 -620 l0 -320 -320 0 -320 0 0 320 0 320 320 0 320 0 0 -320z"/>
+                                    <path d="M2472 2060 c-18 -11 -41 -34 -52 -52 -19 -32 -20 -52 -20 -568 0 -516 1 -536 20 -568 30 -48 75 -72 140 -72 65 0 110 24 140 72 19 32 20 52 20 568 0 516 -1 536 -20 568 -11 18 -34 41 -52 52 -45 27 -131 27 -176 0z"/>
+                                    <path d="M3112 2060 c-18 -11 -41 -34 -52 -52 -19 -32 -20 -52 -20 -568 0 -516 1 -536 20 -568 11 -18 34 -41 52 -52 32 -19 52 -20 568 -20 516 0 536 1 568 20 18 11 41 34 52 52 19 32 20 52 20 568 0 516 -1 536 -20 568 -11 18 -34 41 -52 52 -32 19 -52 20 -568 20 -516 0 -536 -1 -568 -20z m888 -620 l0 -320 -320 0 -320 0 0 320 0 320 320 0 320 0 0 -320z"/>
+                                    <path d="M232 1740 c-18 -11 -41 -34 -52 -52 -19 -32 -20 -52 -20 -584 0 -473 2 -558 16 -605 43 -148 168 -274 315 -320 57 -18 99 -19 612 -19 533 0 553 1 585 20 48 30 72 75 72 140 0 65 -24 110 -72 140 -32 19 -52 20 -533 20 -275 0 -518 5 -539 10 -49 11 -85 37 -111 81 -19 33 -20 57 -25 564 -6 589 -2 562 -73 605 -44 27 -131 27 -175 0z"/>
+                                    <path d="M4713 1740 c-71 -43 -67 -16 -73 -605 -5 -507 -6 -531 -25 -564 -26 -44 -62 -70 -111 -81 -21 -5 -264 -10 -539 -10 -481 0 -501 -1 -533 -20 -48 -30 -72 -75 -72 -140 0 -65 24 -110 72 -140 32 -19 52 -20 584 -20 473 0 558 2 605 16 148 43 274 168 320 315 18 57 19 99 19 612 0 533 -1 553 -20 585 -11 18 -34 41 -52 52 -44 27 -131 27 -175 0z"/>
+                                    </g>
+                                    </svg>
 
 
+                            </div>
+                            <h2 class="text-xl font-bold text-center mb-2">Generate QR Code</h2>
+                            <p class="text-gray-600 text-center mb-4">Generate QR codes for student attendance.</p>
+                            <div id="qrCodeContainer" class="mt-4"></div>
 
-                    <a href="/scan-attendance"
-                        class="mt-4 inline-block bg-indigo-500 text-white px-6 py-2 rounded-full hover:bg-indigo-600">Go</a>
+                            <form action="{{ route('course.registration.store') }}" method="POST" id="course-registration-form">
+                                @csrf
+                                <div class="mb-4">
+                                    <select id="course_id" name="course_id" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                        <option value="">-- Select a Course --</option>
+                                        <option value="1">COSC 101</option>
+                                        <option value="2">COSC 201</option>
+                                        <option value="3">COSC 301</option>
+                                        <option value="4">COSC 401</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <div class="text-center">
+                                <button id="generateQR"  class="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-600">Generate</button>
+                            </div>
+                            <script>
+                                const generateQRButton = document.getElementById('generateQR');
+                                const qrCodeContainer = document.getElementById('qrCodeContainer');
 
+                                generateQRButton.addEventListener('click', () => {
+                                    const courseId = 1; // Replace with actual course ID
 
-
-                </div>
-                @elseif (Auth::user()->user_type === 'lecturer')
-                <!-- Generate QR Code Card -->
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <div class="flex justify-center mb-4">
-                        <img src="https://via.placeholder.com/100" alt="QR Code" class="h-16 w-16">
-                    </div>
-                    <h2 class="text-xl font-bold text-center mb-2">Generate QR Code</h2>
-                    <p class="text-gray-600 text-center mb-4">Generate QR codes for student attendance.</p>
-
-
-
-                    <!-- Registration Form -->
-                    <!-- Your form fields go here -->
-
-                    <form action="{{ route('course.registration.store') }}" method="POST" id="course-registration-form">
-                        @csrf
-                     <!-- QR CODE GENERATE>
-                        @foreach($courses as $course)
-                        <div>
-                            <h3>{{ $course->name }}</h3>
-                            <a href="{{ route('generate.qrcode', $course->id) }}">Generate QR Code</a>
-                            @if(isset($qrCode))
-                                <div>{!! $qrCode !!}</div>
-                            @endif
+                                    fetch(`/generate-qrcode/${courseId}`)
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            qrCodeContainer.innerHTML = data;
+                                        })
+                                        .catch(error => {
+                                            console.error("Error generating QR code: ", error);
+                                        });
+                                });
+                            </script>
                         </div>
-                    @endforeach
+                    @endif
 
-                        <!-- Course Dropdown -->
-                        <div class="mb-4">
+                    <!-- Card: Register for a Course -->
+                    <div class="bg-white shadow-lg rounded-lg p-6">
+                        <div class="flex justify-center mb-4">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25.000000pt" height="25.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                <metadata>
+                                Created by potrace 1.16, written by Peter Selinger 2001-2019
+                                </metadata>
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                <path d="M1865 5100 c-373 -77 -689 -318 -858 -655 -87 -176 -127 -348 -127 -555 0 -328 113 -613 337 -851 221 -234 512 -364 844 -376 362 -14 666 104 920 357 236 235 359 534 359 869 0 604 -414 1102 -1009 1215 -116 22 -348 20 -466 -4z"/>
+                                <path d="M1885 2374 c-942 -78 -1670 -562 -1791 -1192 -11 -57 -14 -182 -14 -553 0 -452 1 -482 19 -517 22 -43 53 -73 98 -96 29 -15 164 -16 1460 -15 l1428 0 -29 22 c-207 157 -372 393 -461 660 -49 146 -66 258 -66 422 0 163 16 271 66 423 73 223 193 410 371 581 l113 108 -117 36 c-145 45 -312 81 -462 102 -111 15 -510 27 -615 19z"/>
+                                <path d="M3770 2229 c-374 -46 -701 -285 -865 -632 -130 -275 -138 -593 -21 -883 102 -255 350 -513 590 -613 155 -65 211 -74 426 -75 170 -1 206 2 281 21 432 110 743 445 825 888 22 122 15 335 -16 454 -110 419 -420 717 -855 822 -96 23 -262 31 -365 18z m260 -769 l0 -240 235 0 235 0 0 -115 0 -115 -235 0 -235 0 0 -235 0 -235 -110 0 -110 0 0 235 0 235 -235 0 -235 0 0 115 0 115 235 0 235 0 0 240 0 240 110 0 110 0 0 -240z"/>
+                                </g>
+                                </svg>
+                        </div>
+                        <h2 class="text-xl font-bold text-center mb-2">Register for Course</h2>
+                        <p class="text-gray-600 text-center mb-4">Select and register for an available course.</p>
 
-                            <select id="course_id" name="course_id"
-                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="">-- Select a Course --</option>
-                                <option value="1">COSC 101</option>
-                                <option value="2">COSC 201</option>
-                                <option value="3">COSC 301</option>
-                                <option value="4">COSC 401</option>
-                    <div class="text-center">
-                        <a href="#"
-                            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Generate</a>
+                        <form action="{{ route('course.registration.store') }}" method="POST" id="course-registration-form">
+                            @csrf
+                            <div class="mb-4">
+                                <select id="course_id" name="course_id" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="">-- Select a Course --</option>
+                                    <option value="1">COSC 101</option>
+                                    <option value="2">COSC 201</option>
+                                    <option value="3">COSC 301</option>
+                                    <option value="4">COSC 401</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-center">
+                                <button type="submit" class="mt-4 inline-block bg-black hover:bg-gray-500 text-white px-6 py-2 rounded-full ">
+                                    Register
+                                </button>
+                            </div>
+                        </form>
                     </div>
-        @endif
-    </div>
 
 
-    <!-- card 2: Register Course -->
-    <div class="bg-white shadow-lg rounded-lg p-6">
-        <div class="flex justify-center mb-4">
-            <img src="https://via.placeholder.com/100" alt="Register for Course" class="h-16 w-16">
-        </div>
-        <h2 class="text-xl font-bold text-center mb-2"></h2>
-        <p class="text-gray-600 text-center mb-4">Select and register for an available course.</p>
-        <!-- Registration Form -->
+            <!-- Lecturer Only: Manage Attendance and Reports -->
+                 @if (Auth::user()->user_type === 'lecturer')
+                        <!-- Manage Attendance -->
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <div class="flex justify-center mb-4">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25.000000pt" height="25.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                    <metadata>
+                                    Created by potrace 1.16, written by Peter Selinger 2001-2019
+                                    </metadata>
+                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                    <path d="M1893 4945 c-137 -30 -252 -123 -312 -248 -28 -58 -55 -92 -90 -112 -8 -5 -74 -11 -147 -14 -127 -6 -135 -8 -176 -37 -54 -37 -88 -98 -95 -168 l-6 -55 -321 -3 -321 -3 -58 -30 c-74 -37 -148 -117 -179 -193 l-23 -57 0 -1790 0 -1790 31 -65 c54 -114 147 -186 269 -210 44 -8 470 -10 1570 -8 l1510 3 57 23 c75 30 147 96 189 174 l34 63 5 470 5 470 545 870 c333 531 552 891 563 925 32 92 5 199 -65 267 -41 40 -318 210 -371 229 -81 29 -193 9 -259 -46 -24 -20 -104 -137 -225 -332 l-188 -300 -5 533 -5 534 -27 57 c-34 73 -103 142 -176 176 l-57 27 -322 3 -323 3 0 45 c0 54 -22 109 -58 147 -50 52 -78 61 -212 67 -158 7 -180 18 -229 114 -106 207 -315 310 -528 261z m246 -180 c65 -36 102 -77 146 -164 67 -134 153 -181 332 -181 97 0 106 -2 128 -25 25 -24 25 -27 25 -190 l0 -165 -770 0 -770 0 0 168 c0 216 -6 208 165 214 94 3 130 8 166 25 62 28 114 82 149 155 52 106 97 150 189 185 61 23 177 12 240 -22z m-1067 -693 c3 -72 8 -94 27 -120 47 -66 -4 -63 911 -60 l830 3 37 38 c38 37 38 38 41 132 l4 95 281 0 c175 0 297 -4 322 -11 53 -15 129 -91 144 -144 7 -27 11 -237 11 -658 l0 -617 -314 -503 -315 -503 -7 -365 c-9 -502 -35 -482 361 -280 l276 141 -3 -373 -3 -372 -28 -48 c-15 -26 -47 -60 -69 -75 l-42 -27 -1520 -3 c-1698 -3 -1571 -8 -1640 68 -19 21 -40 56 -46 77 -8 27 -10 536 -8 1795 l3 1756 30 44 c20 28 49 52 84 71 l55 27 287 0 287 0 4 -88z m3410 -578 c17 -9 89 -52 160 -96 189 -117 194 -135 86 -311 -40 -64 -76 -117 -79 -117 -5 0 -440 262 -457 275 -6 5 141 231 161 247 28 22 89 23 129 2z m-146 -521 c123 -76 224 -141 224 -146 0 -7 -845 -1365 -860 -1380 -10 -11 -461 264 -457 279 3 13 859 1384 864 1384 2 0 105 -62 229 -137z m-948 -1533 c94 -57 170 -105 169 -106 -1 0 -82 -42 -179 -93 l-178 -92 0 202 c0 114 4 199 9 197 5 -1 86 -50 179 -108z"/>
+                                    <path d="M1905 4582 c-138 -65 -175 -238 -73 -348 101 -110 273 -97 355 28 24 36 28 51 28 118 0 67 -4 82 -28 118 -43 65 -97 96 -176 100 -49 2 -76 -2 -106 -16z"/>
+                                    <path d="M1659 3511 c-17 -13 -23 -29 -23 -56 0 -27 6 -43 23 -56 22 -18 56 -19 796 -19 l774 0 20 26 c28 35 26 69 -4 99 l-24 25 -769 0 c-737 0 -771 -1 -793 -19z"/>
+                                    <path d="M1283 3499 c-12 -4 -120 -82 -240 -172 -120 -90 -223 -166 -230 -170 -8 -5 -32 19 -68 67 -30 42 -65 80 -76 86 -46 25 -109 -15 -109 -70 0 -26 143 -242 177 -267 45 -34 68 -21 361 198 236 177 282 215 287 241 13 55 -48 107 -102 87z"/>
+                                    <path d="M1659 3091 c-29 -23 -31 -81 -4 -111 18 -20 27 -20 549 -20 599 0 576 -3 576 71 0 26 -7 46 -20 59 -19 19 -33 20 -549 20 -502 0 -530 -1 -552 -19z"/>
+                                    <path d="M1283 2440 c-12 -5 -120 -83 -240 -173 -120 -90 -223 -166 -230 -170 -8 -5 -32 20 -67 67 -31 41 -65 80 -76 86 -48 26 -110 -15 -110 -71 0 -25 142 -238 178 -266 43 -34 68 -21 353 193 151 113 279 215 286 227 19 35 15 56 -16 88 -31 31 -42 33 -78 19z"/>
+                                    <path d="M1680 2417 c-38 -19 -55 -61 -40 -98 7 -16 21 -34 31 -39 11 -6 312 -10 782 -10 714 0 766 1 786 18 34 28 37 73 8 108 l-25 29 -759 2 c-598 2 -763 0 -783 -10z"/>
+                                    <path d="M1695 2003 c-29 -7 -52 -31 -59 -59 -7 -28 16 -79 39 -88 9 -3 252 -6 539 -6 512 0 523 0 544 20 30 28 30 90 1 116 -20 18 -45 19 -533 21 -281 0 -520 -1 -531 -4z"/>
+                                    <path d="M658 1375 c-30 -17 -43 -60 -29 -96 5 -13 59 -73 120 -134 l111 -109 -120 -122 c-94 -94 -120 -127 -120 -148 0 -38 41 -76 81 -76 28 0 49 17 150 116 l118 117 38 -31 c21 -17 76 -69 123 -116 71 -72 90 -86 116 -86 47 0 76 28 76 74 0 36 -8 47 -118 158 l-119 119 113 110 c62 61 117 122 122 135 20 52 -33 112 -88 100 -18 -4 -69 -48 -142 -121 l-115 -115 -110 109 c-139 137 -153 145 -207 116z"/>
+                                    <path d="M1669 1310 c-29 -17 -43 -65 -27 -96 26 -55 21 -54 579 -51 492 2 518 3 538 21 14 13 21 31 21 55 0 42 -7 54 -37 70 -27 14 -1049 15 -1074 1z"/>
+                                    <path d="M1669 890 c-9 -5 -22 -23 -29 -39 -15 -37 2 -79 40 -98 33 -17 681 -18 729 -2 55 19 69 82 26 124 l-24 25 -363 0 c-209 0 -370 -5 -379 -10z"/>
+                                    </g>
+                                    </svg>
+                            </div>
+                            <h2 class="text-xl font-bold text-center mb-2">Manage Attendance</h2>
+                            <p class="text-gray-600 text-center mb-4">Manage and track student attendance records.</p>
+                            <div class="text-center">
+                                <a href="#" class="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-600">Manage</a>
+                            </div>
+                        </div>
 
-        <form action="{{ route('course.registration.store') }}" method="POST" id="course-registration-form">
-            @csrf
-            <!-- Your form fields go here -->
+                        <!-- View Reports -->
+                        <div class="bg-white shadow-lg rounded-lg p-6 mt-6">
+                            <div class="flex justify-center mb-4">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25.000000pt" height="25.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                    <metadata>
+                                    Created by potrace 1.16, written by Peter Selinger 2001-2019
+                                    </metadata>
+                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                    <path d="M31 5094 l-21 -27 0 -2507 0 -2507 21 -27 20 -26 1894 0 c1041 0 1901 3 1910 6 46 18 45 2 45 1036 l0 973 607 607 c603 603 608 608 608 648 0 39 -6 46 -259 299 -269 270 -286 282 -344 260 -15 -6 -159 -141 -319 -302 l-293 -292 0 464 0 463 -289 296 c-159 164 -372 379 -474 480 l-184 182 -1451 0 -1451 0 -20 -26z m2789 -569 c0 -437 2 -462 45 -479 9 -3 203 -6 431 -6 l414 0 0 -497 0 -498 -447 -447 -447 -447 -66 -198 -67 -198 -981 -5 c-936 -5 -981 -6 -1000 -24 -27 -24 -37 -70 -23 -104 25 -60 -29 -57 998 -60 l942 -2 -25 -73 c-28 -79 -32 -124 -15 -156 l12 -21 -914 0 c-643 0 -923 -3 -946 -11 -64 -23 -79 -116 -24 -159 26 -20 32 -20 1243 -20 1211 0 1217 0 1243 20 55 43 40 136 -24 159 -19 6 -111 11 -223 12 l-191 1 335 111 335 111 143 145 142 144 0 -821 0 -822 -1760 0 -1760 0 0 2380 0 2380 1315 0 1315 0 0 -415z m480 -20 l285 -285 -288 0 -287 0 0 285 c0 157 1 285 3 285 1 0 130 -128 287 -285z m1423 -1073 l167 -167 -130 -130 -130 -130 -170 170 -170 170 127 127 c70 71 130 128 133 128 3 0 81 -75 173 -168z m-788 -1122 l-560 -560 -172 172 -172 172 562 557 562 557 170 -169 170 -169 -560 -560z m-745 -650 c0 -6 -372 -131 -377 -127 -2 2 82 253 123 366 3 10 45 -25 129 -109 69 -69 125 -127 125 -130z"/>
+                                    <path d="M724 2186 c-59 -26 -69 -115 -17 -156 25 -20 40 -20 680 -20 716 0 700 -1 721 58 13 39 5 76 -25 104 l-25 23 -651 2 c-530 2 -658 0 -683 -11z"/>
+                                    <path d="M707 840 c-49 -39 -44 -122 10 -151 39 -21 2427 -21 2466 0 54 29 59 112 10 151 -25 20 -38 20 -1243 20 -1205 0 -1218 0 -1243 -20z"/>
+                                    </g>
+                                    </svg>
+                            </div>
+                            <h2 class="text-xl font-bold text-center mb-2">Report</h2>
+                            <p class="text-gray-600 text-center mb-4">View reports on attendance data.</p>
+                            <div class="text-center">
+                                <a href="#" class="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-600">View Report</a>
+                            </div>
+                        </div>
+               @endif
+                                    <!-- Feedback Section (for both students and lecturers) -->
+                                    <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                                        <div class="p-6 text-center">
+                                            <div class="mb-4">
+                                                <svg version="1.0" "justify-center" xmlns="http://www.w3.org/2000/svg" width="150.000000pt" height="25.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                                    <metadata>
+                                                    Created by potrace 1.16, written by Peter Selinger 2001-2019
+                                                    </metadata>
+                                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                                    <path d="M422 4940 c-109 -39 -204 -135 -243 -245 -18 -52 -19 -91 -19 -995 0 -927 0 -940 20 -960 43 -43 74 -31 374 138 l281 157 1920 5 1920 5 64 33 c79 42 148 111 187 188 l29 59 0 675 0 675 -29 59 c-39 77 -116 155 -191 192 l-60 29 -1227 3 -1226 2 -21 -26 c-27 -34 -27 -74 0 -107 l20 -27 1192 -2 c1185 -3 1192 -3 1237 -24 54 -25 113 -87 131 -140 20 -57 20 -1211 0 -1268 -18 -53 -77 -115 -131 -140 l-45 -21 -1920 -5 -1920 -5 -217 -123 c-119 -67 -219 -122 -223 -122 -3 0 -4 372 -3 828 3 819 3 827 24 872 26 54 75 103 129 127 37 16 89 18 608 23 548 5 569 6 583 24 21 29 18 92 -6 116 -20 20 -33 20 -602 20 -547 -1 -586 -2 -636 -20z"/>
+                                                    <path d="M1860 4940 c-13 -13 -20 -33 -20 -60 0 -64 24 -80 120 -80 96 0 120 16 120 80 0 64 -24 80 -120 80 -67 0 -83 -3 -100 -20z"/>
+                                                    <path d="M1147 4548 c-9 -7 -48 -79 -86 -160 -39 -82 -74 -148 -78 -148 -4 0 -74 -11 -156 -24 -170 -27 -187 -36 -187 -101 0 -41 5 -48 114 -162 l114 -119 -24 -145 c-30 -182 -30 -200 -1 -227 41 -38 81 -29 221 48 69 39 131 70 137 70 6 0 67 -31 136 -70 141 -79 183 -88 221 -47 27 29 27 47 -2 226 l-24 145 114 119 c109 114 114 121 114 162 0 65 -18 75 -183 101 -78 13 -148 23 -155 23 -7 1 -44 67 -83 149 -38 81 -77 153 -86 160 -9 6 -33 12 -53 12 -20 0 -44 -6 -53 -12z m87 -344 c48 -110 60 -119 170 -134 l95 -13 -70 -75 c-77 -83 -79 -92 -59 -221 6 -35 9 -66 6 -68 -3 -3 -38 13 -79 36 -41 23 -85 41 -97 41 -12 0 -56 -18 -97 -41 -41 -23 -76 -39 -79 -36 -3 2 0 33 6 68 21 131 18 140 -60 222 l-69 73 89 13 c56 8 98 19 113 31 13 10 39 52 58 94 19 41 36 75 39 76 3 0 19 -30 34 -66z"/>
+                                                    <path d="M2507 4548 c-9 -7 -48 -79 -86 -160 -39 -82 -74 -148 -78 -148 -4 0 -74 -11 -156 -24 -170 -27 -187 -36 -187 -101 0 -41 5 -48 114 -162 l114 -119 -24 -145 c-30 -182 -30 -200 -1 -227 41 -38 81 -29 221 48 69 39 131 70 137 70 6 0 67 -31 136 -70 141 -79 183 -88 221 -47 27 29 27 47 -2 226 l-24 145 114 119 c109 114 114 121 114 162 0 65 -18 75 -183 101 -78 13 -148 23 -155 23 -7 1 -44 67 -83 149 -38 81 -77 153 -86 160 -9 6 -33 12 -53 12 -20 0 -44 -6 -53 -12z m87 -344 c48 -110 60 -119 170 -134 l95 -13 -70 -75 c-77 -83 -79 -92 -59 -221 6 -35 9 -66 6 -68 -3 -3 -38 13 -79 36 -41 23 -85 41 -97 41 -12 0 -56 -18 -97 -41 -41 -23 -76 -39 -79 -36 -3 2 0 33 6 68 21 131 18 140 -60 222 l-69 73 89 13 c56 8 98 19 113 31 13 10 39 52 58 94 19 41 36 75 39 76 3 0 19 -30 34 -66z"/>
+                                                    <path d="M3867 4548 c-9 -7 -48 -79 -86 -160 -39 -82 -74 -148 -78 -148 -4 0 -74 -11 -156 -24 -170 -27 -187 -36 -187 -101 0 -41 5 -48 114 -162 l114 -119 -24 -145 c-30 -182 -30 -200 -1 -227 41 -38 81 -29 221 48 69 39 131 70 137 70 6 0 67 -31 136 -70 141 -79 183 -88 221 -47 27 29 27 47 -2 226 l-24 145 114 119 c109 114 114 121 114 162 0 65 -18 75 -183 101 -78 13 -148 23 -155 23 -7 1 -44 67 -83 149 -38 81 -77 153 -86 160 -9 6 -33 12 -53 12 -20 0 -44 -6 -53 -12z m87 -344 c48 -110 60 -119 170 -134 l95 -13 -70 -75 c-77 -83 -79 -92 -59 -221 6 -35 9 -66 6 -68 -3 -3 -38 13 -79 36 -41 23 -85 41 -97 41 -12 0 -56 -18 -97 -41 -41 -23 -76 -39 -79 -36 -3 2 0 33 6 68 21 131 18 140 -60 222 l-69 73 89 13 c56 8 98 19 113 31 13 10 39 52 58 94 19 41 36 75 39 76 3 0 19 -30 34 -66z"/>
+                                                    <path d="M4630 2863 c-39 -13 -129 -99 -639 -608 l-593 -592 -34 -167 c-35 -175 -35 -203 4 -232 25 -20 64 -17 228 16 l149 30 588 588 c389 388 594 601 607 628 14 28 20 61 20 110 0 58 -5 77 -30 121 -61 105 -179 147 -300 106z m136 -176 c38 -33 35 -70 -10 -115 l-36 -36 -50 49 -51 50 40 38 c47 43 69 46 107 14z m-642 -748 l-471 -471 -61 -13 c-34 -7 -62 -9 -62 -4 0 4 5 32 11 61 11 53 13 56 482 525 l472 473 50 -50 50 -50 -471 -471z"/>
+                                                    <path d="M422 2380 c-110 -39 -204 -135 -243 -245 -19 -54 -19 -82 -17 -713 l3 -657 29 -58 c36 -75 116 -155 192 -192 l59 -30 465 -3 c256 -2 475 0 487 3 49 12 66 104 26 137 -13 10 -113 14 -462 18 -426 5 -448 6 -491 26 -54 25 -113 87 -131 140 -20 57 -20 1211 0 1268 18 53 77 115 131 140 45 21 47 21 1733 26 1657 5 1689 5 1703 24 21 29 18 92 -6 116 -20 20 -33 20 -1722 20 -1647 -1 -1705 -1 -1756 -20z"/>
+                                                    <path d="M4755 2255 c-34 -33 -32 -69 8 -145 l32 -63 3 -829 c1 -455 0 -828 -3 -828 -4 0 -106 56 -229 125 l-222 125 -1192 0 c-1179 0 -1192 0 -1212 -20 -27 -27 -27 -93 0 -120 20 -20 33 -20 1178 -20 l1159 0 284 -160 c305 -172 336 -183 379 -140 20 20 20 29 18 978 l-3 957 -28 57 c-50 102 -120 136 -172 83z"/>
+                                                    <path d="M660 1980 c-13 -13 -20 -33 -20 -60 0 -27 7 -47 20 -60 18 -18 33 -20 184 -20 l165 0 20 26 c12 15 21 39 21 54 0 15 -9 39 -21 54 l-20 26 -165 0 c-151 0 -166 -2 -184 -20z"/>
+                                                    <path d="M1312 1977 c-30 -32 -29 -87 1 -115 l23 -22 1032 0 c1019 0 1032 0 1052 20 13 13 20 33 20 60 0 27 -7 47 -20 60 -20 20 -33 20 -1053 20 l-1034 0 -21 -23z"/>
+                                                    <path d="M660 1660 c-13 -13 -20 -33 -20 -60 0 -27 7 -47 20 -60 20 -20 33 -20 794 -20 l775 0 20 26 c27 34 27 74 0 108 l-20 26 -775 0 c-761 0 -774 0 -794 -20z"/>
+                                                    <path d="M2362 1657 c-30 -32 -29 -87 1 -115 23 -22 27 -22 410 -22 374 0 388 1 407 20 13 13 20 33 20 60 0 27 -7 47 -20 60 -19 19 -33 20 -408 20 l-389 0 -21 -23z"/>
+                                                    <path d="M660 1340 c-13 -13 -20 -33 -20 -60 0 -27 7 -47 20 -60 20 -20 33 -20 1260 -20 1227 0 1240 0 1260 20 27 27 27 93 0 120 -20 20 -33 20 -1260 20 -1227 0 -1240 0 -1260 -20z"/>
+                                                    <path d="M660 1020 c-13 -13 -20 -33 -20 -60 0 -27 7 -47 20 -60 19 -19 33 -20 500 -20 467 0 481 1 500 20 13 13 20 33 20 60 0 27 -7 47 -20 60 -19 19 -33 20 -500 20 -467 0 -481 -1 -500 -20z"/>
+                                                    <path d="M1831 1014 c-12 -15 -21 -39 -21 -54 0 -15 9 -39 21 -54 l20 -26 1309 0 1309 0 20 26 c27 34 27 74 0 108 l-20 26 -1309 0 -1309 0 -20 -26z"/>
+                                                    <path d="M1552 617 c-30 -32 -29 -87 1 -115 21 -20 34 -22 128 -22 97 0 107 2 127 23 30 32 29 87 -1 115 -21 20 -34 22 -128 22 -97 0 -107 -2 -127 -23z"/>
+                                                    </g>
+                                                    </svg>
+                                            </div>
+                                            <h2 class="text-xl font-semibold text-gray-800">Feedback</h2>
+                                            <p class="text-gray-600 mt-2">Submit feedback to improve your experience.</p>
+                                            <textarea id="feedbackText" rows="3" class="w-full border border-gray-300 rounded-md p-2" placeholder="Enter your feedback..."></textarea>
 
+                                            <a href="#" id="emailLink" class="mt-4 bg-black text-white px-4 py-2 rounded-md inline-block text-center hover:bg-gray-500">Send Feedback</a>
+                                        </div>
+                                    </div>
 
+                                    <script>
+                                        document.getElementById("emailLink").onclick = function () {
+                                            // Get the feedback from the textarea
+                                            var feedback = document.getElementById("feedbackText").value;
 
-            <!-- Course Dropdown -->
-            <div class="mb-4">
+                                            // Prepare the email content using 'mailto:'
+                                            var subject = "User Feedback";
+                                            var body = encodeURIComponent(feedback); // Encode the feedback for URL
+                                            var email = "khaleefasadeeq06@gmail.com"; // Replace with your email address
 
-                <select id="course_id" name="course_id"
-                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                    <option value="">-- Select a Course --</option>
-                    <option value="1">COSC 101</option>
-                    <option value="2">COSC 201</option>
-                    <option value="3">COSC 301</option>
-                    <option value="4">COSC 401</option>
-        <div class="text-center">
+                                            // Set the mailto link dynamically
+                                            this.href = `mailto:${email}?subject=${subject}&body=${body}`;
+                                        };
+                                    </script>
 
-
-
-
-                    <!-- Loop through courses in your database -->
-
-                </select>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="flex justify-center">
-                <button type="submit"
-                    class="mt-4 inline-block bg-green-500 justify-center text-white px-6 py-2 rounded-full hover:bg-green-600">
-                    Register
-
-
-                </button>
-            </div>
-        </form>
-
-        </form>
-    </div>
-    <!-- Card 3: Feedback -->
-
-    @if (Auth::user()->user_type === 'student')
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-50">
-            <div class="p-4 text-center">
-                <div class="mb-4">
-                    <svg class="w-12 h-12 mx-auto text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M7 8h10M7 12h8m-4 8H5V5a2 2 0 012-2h10a2 2 0 012 2v11a2 2 0 01-2 2h-5l-3 3v-3z" />
-                    </svg>
-                </div>
-                <h2 class="text-xl font-semibold text-gray-800">Feedback</h2>
-                <p class="text-gray-600 mt-2">Submit feedback to improve your experience.</p>
-                <textarea id="feedbackText" rows="3" class="w-full border border-gray-300 rounded-md p-2" placeholder="Enter your feedback..."></textarea>
-
-                <a href="#" id="emailLink" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md inline-block text-center">Send Feedback</a>
-            </div>
-        </div>
-            </div>
-        </div>
-    @elseif (Auth::user()->user_type === 'lecturer')
-        <!-- Manage Attendance Card -->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <div class="flex justify-center mb-4">
-                <img src="https://via.placeholder.com/100" alt="Manage Attendance" class="h-16 w-16">
-            </div>
-            <h2 class="text-xl font-bold text-center mb-2">Manage Attendance</h2>
-            <p class="text-gray-600 text-center mb-4">Manage and track student attendance records.</p>
-            <div class="text-center">
-                <a href="#" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">Manage</a>
-            </div>
-        </div>
-    @endif
-
-
-    <!-- Report Card -->
-    @if (Auth::user()->user_type === 'lecturer')
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <div class="flex justify-center mb-4">
-                <img src="https://via.placeholder.com/100" alt="Report" class="h-16 w-16">
-            </div>
-            <h2 class="text-xl font-bold text-center mb-2">Report</h2>
-            <p class="text-gray-600 text-center mb-4">View reports on attendance data.</p>
-            <div class="text-center">
-                <a href="#" class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600">View
-                    Report</a>
-            </div>
-        </div>
-    @endif
-    <!-- feedback -->
-    @if (Auth::user()->user_type === 'lecturer')
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="p-6 text-center">
-                <div class="mb-4">
-                    <svg class="w-12 h-12 mx-auto text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M7 8h10M7 12h8m-4 8H5V5a2 2 0 012-2h10a2 2 0 012 2v11a2 2 0 01-2 2h-5l-3 3v-3z" />
-                    </svg>
-                </div>
-                <h2 class="text-xl font-semibold text-gray-800">Feedback</h2>
-                <p class="text-gray-600 mt-2">Submit feedback to improve your experience.</p>
-                <textarea id="feedbackText" rows="3" class="w-full border border-gray-300 rounded-md p-2" placeholder="Enter your feedback..."></textarea>
-
-                <a href="#" id="emailLink" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md inline-block text-center">Send Feedback</a>
-            </div>
-        </div>
-
-        <script>
-            document.getElementById("emailLink").onclick = function () {
-                // Get the feedback from the textarea
-                var feedback = document.getElementById("feedbackText").value;
-
-                // Prepare the email content using 'mailto:'
-                var subject = "User Feedback";
-                var body = encodeURIComponent(feedback); // Encode the feedback for URL
-                var email = "khaleefasadeeq06@gmail.com"; // Replace with your email address
-
-                // Set the mailto link dynamically
-                this.href = `mailto:${email}?subject=${subject}&body=${body}`;
-            };
-        </script>
-
-
-
-            </div>
-
-
-    @endif
-
-
-
-
-        </div>
-
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-</x-app-layout>
+  </x-app-layout>

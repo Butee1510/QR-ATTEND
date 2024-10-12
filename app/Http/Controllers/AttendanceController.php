@@ -77,6 +77,7 @@ class AttendanceController extends Controller
     }
     public function generateCourseQrCode($courseId)
     {
+        dd("ffd");
     $course = Course::findOrFail($courseId);
 
     // Generate the QR code data for the course
@@ -107,6 +108,7 @@ class AttendanceController extends Controller
 
     return view('lecturers.manage_attendance', compact('attendances', 'totalStudents'));
     }
+
 
 
 }

@@ -12,7 +12,6 @@ class CourseRegistrationController extends Controller
 
 
 
-
     // Create a new course registration
     $registration = CourseRegistration::create([
         'course_id' => $request->course_id,
